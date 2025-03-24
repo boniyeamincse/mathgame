@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter your name!');
             return;
         }
-        difficulty = document.getElementById('difficulty').value;
+        difficulty = document.querySelector('input[name="difficulty"]:checked').value;
         document.getElementById('playerNameDisplay').textContent = `Player: ${playerName}`;
         showSection('game');
         generateQuestion();
