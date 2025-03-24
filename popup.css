@@ -1,0 +1,55 @@
+.popup-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: popupFade 2s ease-in-out;
+}
+
+.popup-correct {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    animation: popupCorrect 2s ease-in-out;
+}
+
+.popup-incorrect {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    animation: popupIncorrect 2s ease-in-out;
+}
+
+@keyframes popupFade {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes popupCorrect {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    70% { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+    80% { transform: translate(-50%, -50%) rotate(5deg); }
+    90% { transform: translate(-50%, -50%) rotate(-5deg); }
+    100% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes popupIncorrect {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    40% { transform: translate(-50%, -50%) translateX(-10px); }
+    50% { transform: translate(-50%, -50%) translateX(10px); }
+    60% { transform: translate(-50%, -50%) translateX(-10px); }
+    70% { opacity: 1; transform: translate(-50%, -50%) translateX(0); }
+    100% { opacity: 0; }
+}

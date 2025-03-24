@@ -74,19 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('questionNumber').textContent = questionNumber;
     }
 
+    function showPopup(message, isCorrect) {
+        const popup = document.createElement('div');
+        popup.className = `popup-notification ${isCorrect ? 'popup-correct' : 'popup-incorrect'}`;
+        popup.textContent = message;
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+            document.body.removeChild(popup);
+        }, 2000);
+    }
+
     function checkAnswer() {
         const userAnswer = parseFloat(document.getElementById('answer').value);
         if (isNaN(userAnswer)) {
-            alert('Please enter a valid number!');
+            showPopup('Please enter a valid number!', false);
             return;
         }
 
         if (userAnswer === currentAnswer) {
             score += 5;
-            alert('Correct! +5 points');
+            showPopup('Correct! +5 points', true);
         } else {
             score = Math.max(0, score - 1);
-            alert(`Incorrect! The answer was ${currentAnswer}. -1 point`);
+            showPopup(`Incorrect! The answer was ${currentAnswer}. -1 point`, false);
         }
 
         document.getElementById('score').textContent = `Score: ${score}`;

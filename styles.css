@@ -48,8 +48,26 @@ h1 {
     margin-bottom: 2.5rem;
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: titleAnimation 4s ease-in-out infinite;
 }
 
+@keyframes titleAnimation {
+    0% {
+        color: #FF69B4;
+        transform: scale(1);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        color: #87CEEB;
+        transform: scale(1.05);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        color: #FF69B4;
+        transform: scale(1);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
 .registration-form {
     display: flex;
     flex-direction: column;
